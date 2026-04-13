@@ -24,28 +24,24 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section - Restructured with 3 columns top + form below */}
       <section className="py-20" style={{backgroundColor: '#FDF8F4'}}>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Column - Info y Mapa */}
-            <div>
-              <h2 className="text-4xl font-bold mb-6" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
-                ¿Tienes preguntas?
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Nos encantaría conocerte. Contáctanos para resolver cualquier duda, 
-                pedir presupuesto o simplemente charlar sobre tu próxima sesión fotográfica.
-              </p>
-              
-              {/* Info Contacto */}
-              <div className="space-y-6 mb-8">
+          <h2 className="text-4xl font-bold text-center mb-12" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
+            ¿Tienes preguntas?
+          </h2>
+          
+          {/* Top Row - 3 columns: Info, Map, Social */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            {/* Contact Info */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-full" style={{backgroundColor: `${FRESA}20`}}>
                     <MapPin className="w-6 h-6" style={{color: FRESA}} />
                   </div>
                   <div>
-                    <h4 className="font-semibold" style={{color: FRESA_DARK}}>Dónde encontrarnos</h4>
+                    <h4 className="font-semibold" style={{color: FRESA_DARK}}>Dirección</h4>
                     <p className="text-gray-600">C/ Constitución nº20, local izquierda, 03570<br/>La Vila Joiosa, Alicante</p>
                   </div>
                 </div>
@@ -71,36 +67,40 @@ export default function ContactoPage() {
                     </a>
                   </div>
                 </div>
-                
-                <div className="pt-4">
-                  <h4 className="font-semibold mb-4" style={{color: FRESA_DARK}}>Síguenos</h4>
-                  <div className="flex gap-4">
-                    <a href="https://www.instagram.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors" style={{backgroundColor: FRESA}}>
-                      <Instagram className="w-6 h-6" />
-                    </a>
-                    <a href="https://www.facebook.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors" style={{backgroundColor: KIWI}}>
-                      <Facebook className="w-6 h-6" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mapa */}
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d390.26204477840867!2d-0.23027608422429072!3d38.50848851283724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62191ee4c716fd%3A0xc21e2879ce5b91cc!2sFresaikiwi%20Fotografia!5e0!3m2!1ses!2ses!4v1709248393387!5m2!1ses!2ses"
-                  width="100%" 
-                  height="450" 
-                  style={{border:0}} 
-                  allowFullScreen 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
               </div>
             </div>
 
-            {/* Right Column - Form */}
-            <div className="bg-white p-8 rounded-2xl shadow-xl">
+            {/* Map - Takes more space */}
+            <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-lg h-full min-h-[300px] lg:min-h-[400px]">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d390.26204477840867!2d-0.23027608422429072!3d38.50848851283724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62191ee4c716fd%3A0xc21e2879ce5b91cc!2sFresaikiwi%20Fotografia!5e0!3m2!1ses!2ses!4v1709248393387!5m2!1ses!2ses"
+                width="100%" 
+                height="100%" 
+                style={{border:0, minHeight: '300px'}} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+          {/* Social + Form Row */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {/* Social Sidebar */}
+            <div className="lg:col-span-1 flex lg:flex-col items-center lg:items-start gap-4 bg-white p-6 rounded-2xl shadow-lg">
+              <h4 className="font-semibold" style={{color: FRESA_DARK}}>Síguenos</h4>
+              <div className="flex lg:flex-col gap-3">
+                <a href="https://www.instagram.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors hover:scale-110" style={{backgroundColor: FRESA}}>
+                  <Instagram className="w-6 h-6" />
+                </a>
+                <a href="https://www.facebook.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors hover:scale-110" style={{backgroundColor: KIWI}}>
+                  <Facebook className="w-6 h-6" />
+                </a>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="lg:col-span-4 bg-white p-8 rounded-2xl shadow-xl">
               <h3 className="text-2xl font-bold mb-6" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
                 Envíanos un mensaje
               </h3>

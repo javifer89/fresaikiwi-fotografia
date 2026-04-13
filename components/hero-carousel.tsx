@@ -71,19 +71,19 @@ export function HeroCarousel() {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-0" : "opacity-0 z-0"}`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"}`}
+          style={{ zIndex: index === currentSlide ? 1 : 0 }}
         >
           <img
             src={slide.image}
             alt={slide.title}
             className="w-full h-full object-cover"
-            style={{ position: 'absolute', top: 0, left: 0 }}
           />
         </div>
       ))}
 
       {/* Overlay oscuro para texto */}
-      <div className="absolute inset-0 z-10" style={{ backgroundColor: 'rgba(0,0,0,0.35)' }} />
+      <div className="absolute inset-0 z-20" style={{ backgroundColor: 'rgba(0,0,0,0.35)' }} />
 
       {/* Content */}
       <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 max-w-3xl z-20">
