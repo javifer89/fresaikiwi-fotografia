@@ -55,6 +55,7 @@ const slides = [
 export function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -66,12 +67,14 @@ export function HeroCarousel() {
   }, [isAnimating]);
 
   const goToSlide = (index: number) => {
-    if (index !== currentSlide) {
-      setIsAnimating(true);
+    if (index !== currentSlide && !isFading) {
+      setIsFading(true);
       setTimeout(() => {
         setCurrentSlide(index);
-        setIsAnimating(false);
-      }, 300);
+        setTimeout(() => {
+          setIsFading(false);
+        }, 50);
+      }, 400);
     }
   };
 
@@ -95,7 +98,7 @@ export function HeroCarousel() {
         <img
           src={slides[currentSlide].image}
           alt={slides[currentSlide].title}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
         />
       </div>
 
