@@ -1,0 +1,103 @@
+"use client";
+
+import { KleapForm } from "@/components/kleap-form";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+
+export function ContactCTA() {
+  return (
+    <section className="py-24 px-4 md:px-8" style={{ backgroundColor: 'var(--crema)' }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium rounded-full"
+                style={{ backgroundColor: 'var(--fresa-light)', color: 'var(--fresa-dark)' }}>
+            ¿Listo para tu sesión?
+          </span>
+          <h2 
+            className="text-4xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D' }}
+          >
+            Reserve su momento especial
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B6B6B' }}>
+            Rellene el formulario y nos pondremos en contacto con usted para planificar su sesión fotográfica perfecta
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Contact Form */}
+          <div className="bg-white rounded-3xl p-8 shadow-xl">
+            <KleapForm
+              formId="reservas"
+              title="Reservar Sesión"
+              fields={[
+                { name: "nombre", label: "Nombre completo", type: "text", required: true },
+                { name: "email", label: "Email", type: "email", required: true },
+                { name: "telefono", label: "Teléfono", type: "tel", required: true },
+                { name: "tipo_sesion", label: "Tipo de sesión", type: "select", options: ["Embarazo", "Newborn", "Cumpleaños", "Comunión", "Navidad", "Familia", "Musical", "Moros y Cristianos"], required: true },
+                { name: "fecha_deseada", label: "Fecha deseada", type: "text" },
+                { name: "mensaje", label: "Mensaje o comentarios", type: "textarea" }
+              ]}
+              submitText="Enviar Solicitud"
+              successMessage="¡Gracias! Nos pondremos en contacto con usted en menos de 24 horas."
+            />
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-6">
+            {/* Info Cards */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--fresa-light)' }}>
+                  <MapPin className="w-6 h-6" style={{ color: 'var(--fresa-dark)' }} />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Ubicación</h3>
+                  <p className="text-gray-600">Valencia, España</p>
+                  <p className="text-sm text-gray-500">Consultar dirección exacta al confirmar</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--kiwi-light)' }}>
+                  <Phone className="w-6 h-6" style={{ color: 'var(--kiwi-dark)' }} />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Teléfono</h3>
+                  <p className="text-gray-600">[Tu número de teléfono]</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--fresa-light)' }}>
+                  <Mail className="w-6 h-6" style={{ color: 'var(--fresa-dark)' }} />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Email</h3>
+                  <p className="text-gray-600">hola@fresaikiwi.es</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--kiwi-light)' }}>
+                  <Clock className="w-6 h-6" style={{ color: 'var(--kiwi-dark)' }} />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Horario</h3>
+                  <p className="text-gray-600">Lunes - Viernes: 10:00 - 19:00</p>
+                  <p className="text-gray-600">Sábados: 10:00 - 14:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
