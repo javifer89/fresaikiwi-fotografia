@@ -1,16 +1,18 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { siteConfig } from "@/lib/site-config";
 
 export const Logo = () => {
   return (
     <Link
       href="/"
-      className="font-normal flex space-x-2 items-center text-sm mr-4  text-black px-2 py-1  relative z-20"
+      className="flex items-center relative z-20"
     >
-      <div className="h-5 w-6 bg-black rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm" />
-      <span className="font-medium text-black">{siteConfig.name}</span>
+      <img 
+        src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/LOGO_WEB.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbWciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvTE9HT19XRUIucG5nIiwiaWF0IjoxNzc2MTAwNTU0LCJleHAiOjE4MDc2MzY1NTR9.ohXez3syn7cmcPraXd6NfzX2-gRdSdfMoqoIBdbUX84" 
+        alt="Fresaikiwi Fotografía"
+        className="h-14 md:h-16 w-auto"
+      />
     </Link>
   );
 };

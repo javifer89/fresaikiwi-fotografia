@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/PROBA_DECORAT-22%20copia%202.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvUFJPQkFfREVDT1JBVC0yMiBjb3BpYSAyLmpwZyIsImlhdCI6MTc3NjA5NzU5MSwiZXhwIjoxODA3NjMzNTkxfQ.VsgBpg1PKT2uxD-zsMYdabYABAPe8D-DNVuGKwPyaSA" 
+                  src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/IMG_9035-copia-bin-800x1024.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvSU1HXzkwMzUtY29waWEtYmluLTgwMHgxMDI0LmpwZyIsImlhdCI6MTc3NjA5ODk5MSwiZXhwIjoxODA3NjM0OTkxfQ.u6XBdTz7AujG0s1Z-z2xAX_BGmGHVuONaSJFHTvsWd4" 
                   alt="Estudio Fresaikiwi"
                   className="w-full h-[500px] object-cover"
                 />

@@ -5,6 +5,10 @@ import { Footer } from "@/components/footer";
 import { KleapForm } from "@/components/kleap-form";
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 
+const FRESA = "#E8A4A4";
+const FRESA_DARK = "#D48888";
+const KIWI = "#7BAE7F";
+
 export default function ContactoPage() {
   return (
     <main className="min-h-screen">
@@ -21,10 +25,10 @@ export default function ContactoPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20" style={{backgroundColor: 'var(--crema)'}}>
+      <section className="py-20" style={{backgroundColor: '#FDF8F4'}}>
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Info */}
+            {/* Left Column - Info y Mapa */}
             <div>
               <h2 className="text-4xl font-bold mb-6" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
                 ¿Tienes preguntas?
@@ -34,53 +38,72 @@ export default function ContactoPage() {
                 pedir presupuesto o simplemente charlar sobre tu próxima sesión fotográfica.
               </p>
               
-              <div className="space-y-6">
+              {/* Info Contacto */}
+              <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-[var(--fresa)]/20">
-                    <MapPin className="w-6 h-6 text-[var(--fresa)]" />
+                  <div className="p-3 rounded-full" style={{backgroundColor: `${FRESA}20`}}>
+                    <MapPin className="w-6 h-6" style={{color: FRESA}} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--fresa-dark)]">Ubicación</h4>
-                    <p className="text-gray-600">Elda, Alicante</p>
+                    <h4 className="font-semibold" style={{color: FRESA_DARK}}>Dónde encontrarnos</h4>
+                    <p className="text-gray-600">C/ Constitución nº20, local izquierda, 03570<br/>La Vila Joiosa, Alicante</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-[var(--kiwi)]/20">
-                    <Phone className="w-6 h-6 text-[var(--kiwi)]" />
+                  <div className="p-3 rounded-full" style={{backgroundColor: `${KIWI}20`}}>
+                    <Phone className="w-6 h-6" style={{color: KIWI}} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--kiwi)]">Teléfono</h4>
-                    <p className="text-gray-600">[Tu número]</p>
+                    <h4 className="font-semibold" style={{color: KIWI}}>Teléfono</h4>
+                    <p className="text-gray-600">(+34) 672 62 12 91</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-[var(--fresa)]/20">
-                    <Mail className="w-6 h-6 text-[var(--fresa)]" />
+                  <div className="p-3 rounded-full" style={{backgroundColor: `${FRESA}20`}}>
+                    <Mail className="w-6 h-6" style={{color: FRESA}} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[var(--fresa-dark)]">Email</h4>
-                    <p className="text-gray-600">[Tu email]</p>
+                    <h4 className="font-semibold" style={{color: FRESA_DARK}}>Email</h4>
+                    <a href="mailto:info@fresaikiwifotografia.com" className="text-gray-600 hover:underline">
+                      info@fresaikiwifotografia.com
+                    </a>
                   </div>
                 </div>
                 
-                <div className="pt-6">
-                  <h4 className="font-semibold text-[var(--fresa-dark)] mb-4">Síguenos</h4>
+                <div className="pt-4">
+                  <h4 className="font-semibold mb-4" style={{color: FRESA_DARK}}>Síguenos</h4>
                   <div className="flex gap-4">
-                    <a href="#" className="p-3 rounded-full bg-[var(--fresa)]/20 text-[var(--fresa)] hover:bg-[var(--fresa)] hover:text-white transition-colors">
+                    <a href="https://www.instagram.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors" style={{backgroundColor: FRESA}}>
                       <Instagram className="w-6 h-6" />
                     </a>
-                    <a href="#" className="p-3 rounded-full bg-[var(--kiwi)]/20 text-[var(--kiwi)] hover:bg-[var(--kiwi)] hover:text-white transition-colors">
+                    <a href="https://www.facebook.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors" style={{backgroundColor: KIWI}}>
                       <Facebook className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
               </div>
+
+              {/* Mapa */}
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d390.26204477840867!2d-0.23027608422429072!3d38.50848851283724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62191ee4c716fd%3A0xc21e2879ce5b91cc!2sFresaikiwi%20Fotografia!5e0!3m2!1ses!2ses!4v1709248393387!5m2!1ses!2ses"
+                  width="100%" 
+                  height="450" 
+                  style={{border:0}} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Right Column - Form */}
             <div className="bg-white p-8 rounded-2xl shadow-xl">
+              <h3 className="text-2xl font-bold mb-6" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
+                Envíanos un mensaje
+              </h3>
               <KleapForm
                 formId="contacto"
                 title="Formulario de Contacto"

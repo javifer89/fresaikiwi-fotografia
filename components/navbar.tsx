@@ -34,19 +34,12 @@ export function NavBar() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl" role="img" aria-label="Fresa y kiwi">🍓🥝</span>
-            <div>
-              <span
-                className="text-xl font-semibold block"
-                style={{ fontFamily: "'Cormorant Garamond', serif", color: FRESA_DARK }}
-              >
-                Fresaikiwi
-              </span>
-              <span className="text-xs tracking-widest uppercase" style={{ color: KIWI }}>
-                Fotografía
-              </span>
-            </div>
+          <Link href="/" className="flex items-center">
+            <img 
+              src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/LOGO_WEB.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvTE9HT19XRUIucG5nIiwiaWF0IjoxNzc2MTAwNTU0LCJleHAiOjE4MDc2MzY1NTR9.ohXez3syn7cmcPraXd6NfzX2-gRdSdfMoqoIBdbUX84" 
+              alt="Fresaikiwi Fotografía"
+              className="h-12 md:h-14 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

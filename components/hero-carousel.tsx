@@ -17,7 +17,7 @@ const slides = [
     id: 2,
     title: "Comuniones y Celebraciones",
     subtitle: "Recuerdos especiales para días únicos",
-    image: "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/CARLOTA_2ANYS-147.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbWciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvQ0FSTE9UQV8yQU5ZUy0xNDcuanBnIiwiaWF0IjoxNzc2MDkyNDAzLCJleHAiOjE4MDc2Mjg0MDN9.3b3dSlrZMR10VmAx7nGUeVnbLDqiW6_U7HP041Om2FA"
+    image: "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/CARLOTA_2ANYS-147.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvQ0FSTE9UQV8yQU5ZUy0xNDcuanBnIiwiaWF0IjoxNzc2MDkyNDAzLCJleHAiOjE4MDc2Mjg0MDN9.3b3dSlrZMR10VmAx7nGUeVnbLDqiW6_U7HP041Om2FA"
   },
   {
     id: 3,
@@ -71,22 +71,22 @@ export function HeroCarousel() {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-0" : "opacity-0 z-0"}`}
         >
-          {/* Background Image - sin overlay de color */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.image})` }}
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="w-full h-full object-cover"
+            style={{ position: 'absolute', top: 0, left: 0 }}
           />
-          {/* Overlay oscuro sutil solo para texto legible */}
-          <div className="absolute inset-0 bg-black/20" />
         </div>
       ))}
 
+      {/* Overlay oscuro para texto */}
+      <div className="absolute inset-0 z-10" style={{ backgroundColor: 'rgba(0,0,0,0.35)' }} />
+
       {/* Content */}
-      <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 max-w-3xl">
+      <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 max-w-3xl z-20">
         <div className="animate-fade-in-up">
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium rounded-full bg-white/80 backdrop-blur-sm"
                 style={{ color: FRESA_DARK }}>
@@ -95,13 +95,13 @@ export function HeroCarousel() {
         </div>
         <h1 
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up delay-100"
-          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}
+          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)' }}
         >
           {slides[currentSlide].title}
         </h1>
         <p 
           className="text-lg md:text-xl text-white/95 mb-8 animate-fade-in-up delay-200"
-          style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.4)' }}
+          style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}
         >
           {slides[currentSlide].subtitle}
         </p>
@@ -125,21 +125,21 @@ export function HeroCarousel() {
       {/* Navigation Arrows */}
       <button
         onClick={goToPrev}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all z-30"
         aria-label="Slide anterior"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={goToNext}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 transition-all z-30"
         aria-label="Slide siguiente"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
