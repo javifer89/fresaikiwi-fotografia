@@ -54,17 +54,40 @@ const slides = [
 
 export function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      if (!isAnimating) {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      if (!isFading) {
+        handleNext();
       }
     }, 5000);
     return () => clearInterval(timer);
-  }, [isAnimating]);
+  }, [isFading, currentSlide]);
+
+  const handleNext = () => {
+    if (!isFading) {
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setTimeout(() => {
+          setIsFading(false);
+        }, 100);
+      }, 800);
+    }
+  };
+
+  const handlePrev = () => {
+    if (!isFading) {
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setTimeout(() => {
+          setIsFading(false);
+        }, 100);
+      }, 800);
+    }
+  };
 
   const goToSlide = (index: number) => {
     if (index !== currentSlide && !isFading) {
@@ -73,70 +96,49 @@ export function HeroCarousel() {
         setCurrentSlide(index);
         setTimeout(() => {
           setIsFading(false);
-        }, 50);
-      }, 400);
+        }, 100);
+      }, 800);
     }
-  };
-
-  const goToPrev = () => {
-    const prev = (currentSlide - 1 + slides.length) % slides.length;
-    goToSlide(prev);
-  };
-
-  const goToNext = () => {
-    const next = (currentSlide + 1) % slides.length;
-    goToSlide(next);
   };
 
   return (
     <section className="relative h-screen w-full overflow-hidden -mt-20">
-      {/* Background Image - siempre visible */}
-      <div 
-        className="absolute inset-0 transition-opacity duration-700"
-        style={{ opacity: 1 }}
-      >
-        <img
-          src={slides[currentSlide].image}
-          alt={slides[currentSlide].title}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
-        />
-      </div>
+      {/* Fade Background Images */}
+      {slides.map((slide, index) => (
+        <div 
+          key={slide.id}
+          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+          style={{ opacity: currentSlide === index ? (isFading ? 0 : 1) : 0 }}
+        >
+          <img
+            src={slide.image}
+            alt={slide.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
 
-      {/* Gradient Overlay - rosa fresa a kiwi desde abajo */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: `linear-gradient(
-            to top, 
-            rgba(232, 164, 164, 0.9) 0%, 
-            rgba(232, 164, 164, 0.6) 25%, 
-            rgba(232, 164, 164, 0.3) 45%, 
-            rgba(123, 174, 127, 0.2) 60%, 
-            rgba(123, 174, 127, 0.1) 75%,
-            transparent 100%
-          )`
-        }}
-      />
+      {/* Clean display - no overlay */}
 
       {/* Content */}
-      <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 max-w-3xl z-10">
+      <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 max-w-3xl z-10 bg-black/0">
         <div className="animate-fade-in-up">
           <span 
             className="inline-block px-4 py-2 mb-6 text-sm font-medium rounded-full bg-white/90 backdrop-blur-sm"
-            style={{ color: FRESA_DARK }}
+            style={{ color: FRESA_DARK, fontFamily: "'Roboto', sans-serif" }}
           >
             Studio Fresaikiwi
           </span>
         </div>
         <h1 
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up delay-100"
-          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}
+          style={{ fontFamily: "'Rouge Script', cursive", textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}
         >
           {slides[currentSlide].title}
         </h1>
         <p 
           className="text-lg md:text-xl text-white/95 mb-8 animate-fade-in-up delay-200"
-          style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.4)' }}
+          style={{ fontFamily: "'Roboto', sans-serif", textShadow: '1px 1px 4px rgba(0,0,0,0.4)' }}
         >
           {slides[currentSlide].subtitle}
         </p>
@@ -144,13 +146,14 @@ export function HeroCarousel() {
           <a
             href="/sesiones"
             className="px-8 py-4 rounded-full font-medium transition-all hover:scale-105 hover:shadow-xl"
-            style={{ backgroundColor: FRESA, color: 'white' }}
+            style={{ backgroundColor: FRESA, color: 'white', fontFamily: "'Roboto', sans-serif" }}
           >
             Ver Sesiones
           </a>
           <a
             href="/reservas"
             className="px-8 py-4 rounded-full font-medium border-2 border-white text-white transition-all hover:bg-white hover:text-pink-600"
+            style={{ fontFamily: "'Roboto', sans-serif" }}
           >
             Reservar
           </a>
@@ -159,14 +162,14 @@ export function HeroCarousel() {
 
       {/* Navigation Arrows */}
       <button
-        onClick={goToPrev}
+        onClick={handlePrev}
         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/25 backdrop-blur-sm text-white hover:bg-white/40 transition-all z-20"
         aria-label="Slide anterior"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
-        onClick={goToNext}
+        onClick={handleNext}
         className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/25 backdrop-blur-sm text-white hover:bg-white/40 transition-all z-20"
         aria-label="Slide siguiente"
       >

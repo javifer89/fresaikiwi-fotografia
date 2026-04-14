@@ -3,14 +3,21 @@
 import { KleapForm } from "@/components/kleap-form";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
+const FRESA = "#E8A4A4";
+const FRESA_LIGHT = "#F5D5D5";
+const FRESA_DARK = "#D48888";
+const KIWI = "#7BAE7F";
+const KIWI_LIGHT = "#D4EAD7";
+const CREMA = "#FDF8F4";
+
 export function ContactCTA() {
   return (
-    <section className="py-24 px-4 md:px-8" style={{ backgroundColor: 'var(--crema)' }}>
+    <section className="py-24 px-4 md:px-8" style={{ backgroundColor: CREMA }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 mb-4 text-sm font-medium rounded-full"
-                style={{ backgroundColor: 'var(--fresa-light)', color: 'var(--fresa-dark)' }}>
+                style={{ backgroundColor: FRESA_LIGHT, color: FRESA_DARK }}>
             ¿Listo para tu sesión?
           </span>
           <h2 
@@ -48,8 +55,8 @@ export function ContactCTA() {
             {/* Info Cards */}
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--fresa-light)' }}>
-                  <MapPin className="w-6 h-6" style={{ color: 'var(--fresa-dark)' }} />
+                <div className="p-3 rounded-xl" style={{ backgroundColor: FRESA_LIGHT }}>
+                  <MapPin className="w-6 h-6" style={{ color: FRESA_DARK }} />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Ubicación</h3>
@@ -61,8 +68,8 @@ export function ContactCTA() {
 
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--kiwi-light)' }}>
-                  <Phone className="w-6 h-6" style={{ color: 'var(--kiwi-dark)' }} />
+                <div className="p-3 rounded-xl" style={{ backgroundColor: KIWI_LIGHT }}>
+                  <Phone className="w-6 h-6" style={{ color: KIWI }} />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Teléfono</h3>
@@ -73,8 +80,8 @@ export function ContactCTA() {
 
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--fresa-light)' }}>
-                  <Mail className="w-6 h-6" style={{ color: 'var(--fresa-dark)' }} />
+                <div className="p-3 rounded-xl" style={{ backgroundColor: FRESA_LIGHT }}>
+                  <Mail className="w-6 h-6" style={{ color: FRESA_DARK }} />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Email</h3>
@@ -85,8 +92,8 @@ export function ContactCTA() {
 
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:-translate-y-1 transition-all">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--kiwi-light)' }}>
-                  <Clock className="w-6 h-6" style={{ color: 'var(--kiwi-dark)' }} />
+                <div className="p-3 rounded-xl" style={{ backgroundColor: KIWI_LIGHT }}>
+                  <Clock className="w-6 h-6" style={{ color: KIWI }} />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Horario</h3>

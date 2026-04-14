@@ -20,26 +20,19 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="text-3xl" role="img" aria-label="Fresa y kiwi">🍓🥝</span>
-              <div>
-                <span 
-                  className="text-xl font-semibold block"
-                  style={{ fontFamily: "'Cormorant Garamond', serif", color: FRESA_LIGHT }}
-                >
-                  Fresaikiwi
-                </span>
-                <span className="text-xs tracking-widest uppercase" style={{ color: KIWI_LIGHT }}>
-                  Fotografía
-                </span>
-              </div>
+              <img 
+                src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/LOGO_WEB.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvTE9HT19XRUIucG5nIiwiaWF0IjoxNzc2MTAwNTU0LCJleHAiOjE4MDc2MzY1NTR9.ohXez3syn7cmcPraXd6NfzX2-gRdSdfMoqoIBdbUX84" 
+                alt="Fresaikiwi Fotografía"
+                className="h-20 md:h-24 w-auto"
+              />
             </Link>
-            <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+            <p className="text-sm text-gray-400 mb-6 leading-relaxed" style={{fontFamily: "'Roboto', sans-serif"}}>
               Capturando momentos únicos e irrepetibles. Cada sesión es una historia esperando ser contada a través de nuestras imágenes.
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/fresaikiwi_fotografia/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/10 hover:bg-pink-400 transition-colors"
@@ -48,7 +41,7 @@ export function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/fresaikiwi.fotografia.3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/10 hover:bg-[#E8A4A4] transition-colors"
@@ -135,20 +128,20 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: KIWI_LIGHT }} />
-                <span className="text-sm text-gray-400">
-                  Valencia, España
+                <span className="text-sm text-gray-400" style={{fontFamily: "'Roboto', sans-serif"}}>
+                  C/ Constitución nº20, local izquierda, 03570 La Vila Joiosa, Alicante
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 flex-shrink-0" style={{ color: '#D4EAD7' }} />
-                <a href="tel:+34960000000" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  [Tu teléfono]
+                <a href="tel:+34672621291" className="text-sm text-gray-400 hover:text-white transition-colors" style={{fontFamily: "'Roboto', sans-serif"}}>
+                  (+34) 672 62 12 91
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0" style={{ color: KIWI_LIGHT }} />
-                <a href="mailto:hola@fresaikiwi.es" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  hola@fresaikiwi.es
+                <a href="mailto:info@fresaikiwifotografia.com" className="text-sm text-gray-400 hover:text-white transition-colors" style={{fontFamily: "'Roboto', sans-serif"}}>
+                  info@fresaikiwifotografia.com
                 </a>
               </li>
             </ul>

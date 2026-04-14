@@ -14,7 +14,7 @@ const GRIS = "#3D3D3D";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-16">
       {/* Our Story - sin hero */}
       <section className="py-16 md:py-24" style={{backgroundColor: CREMA}}>
         <Container>
@@ -73,24 +73,24 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-8 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--fresa)]/20 flex items-center justify-center">
-                <Camera className="w-8 h-8 text-[var(--fresa)]" />
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{backgroundColor: `${FRESA}33`}}>
+                <Camera className="w-8 h-8" style={{color: FRESA}} />
               </div>
-              <h3 className="text-xl font-bold text-[var(--fresa-dark)] mb-3">Pasión</h3>
+              <h3 className="text-xl font-bold mb-3" style={{color: FRESA_DARK}}>Pasión</h3>
               <p className="text-gray-600">Amamos lo que hacemos y eso se refleja en cada fotografía que tomamos.</p>
             </div>
             <div className="text-center p-8 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--kiwi)]/20 flex items-center justify-center">
-                <Heart className="w-8 h-8 text-[var(--kiwi)]" />
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{backgroundColor: `${KIWI}33`}}>
+                <Heart className="w-8 h-8" style={{color: KIWI}} />
               </div>
-              <h3 className="text-xl font-bold text-[var(--kiwi)] mb-3">Dedicación</h3>
+              <h3 className="text-xl font-bold mb-3" style={{color: KIWI}}>Dedicación</h3>
               <p className="text-gray-600">Cada sesión recibe nuestra atención total y personalizado para ti.</p>
             </div>
             <div className="text-center p-8 rounded-2xl bg-white shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--fresa)]/20 flex items-center justify-center">
-                <Sparkles className="w-8 h-8 text-[var(--fresa)]" />
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{backgroundColor: `${FRESA}33`}}>
+                <Sparkles className="w-8 h-8" style={{color: FRESA}} />
               </div>
-              <h3 className="text-xl font-bold text-[var(--fresa-dark)] mb-3">Creatividad</h3>
+              <h3 className="text-xl font-bold mb-3" style={{color: FRESA_DARK}}>Creatividad</h3>
               <p className="text-gray-600">Buscamos siempre la innovación y ideas frescas para tus fotos.</p>
             </div>
           </div>

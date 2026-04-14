@@ -8,34 +8,26 @@ import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 const FRESA = "#E8A4A4";
 const FRESA_DARK = "#D48888";
 const KIWI = "#7BAE7F";
+const CREMA = "#FDF8F4";
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-screen">
-      {/* Hero */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden -mt-20">
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: "url('https://lrggyvioreorxttbasgi.supabase.co/storage/v1/object/public/app-assets/15730/images/1775852256742-hero-studio.jpg')"}} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="relative z-10 text-center text-white">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 animate-fade-in-up">Contacto</h1>
-          <p className="text-xl md:text-2xl opacity-90 animate-fade-in-up delay-200">
+    <main className="min-h-screen pt-16">
+      {/* Contact Section */}
+      <section className="py-16" style={{backgroundColor: CREMA}}>
+        <Container>
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{fontFamily: "'Rouge Script', cursive", color: '#3D3D3D'}}>
+            Contacto
+          </h1>
+          <p className="text-center text-gray-600 mb-12" style={{fontFamily: "'Roboto', sans-serif"}}>
             Estamos aquí para ayudarte
           </p>
-        </div>
-      </section>
-
-      {/* Contact Section - Side by side: Info + Map | Form below */}
-      <section className="py-16" style={{backgroundColor: '#FDF8F4'}}>
-        <Container>
-          <h2 className="text-4xl font-bold text-center mb-12" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
-            ¿Tienes preguntas?
-          </h2>
           
           {/* Top Section - Info + Map side by side */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Left: Contact Info */}
             <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-6" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
+              <h3 className="text-2xl font-bold mb-6" style={{fontFamily: "'Rouge Script', cursive", color: '#3D3D3D'}}>
                 Información de contacto
               </h3>
               <div className="space-y-6">
@@ -44,8 +36,8 @@ export default function ContactoPage() {
                     <MapPin className="w-6 h-6" style={{color: FRESA}} />
                   </div>
                   <div>
-                    <h4 className="font-semibold" style={{color: FRESA_DARK}}>Dirección</h4>
-                    <p className="text-gray-600">C/ Constitución nº20, local izquierda, 03570<br/>La Vila Joiosa, Alicante</p>
+                    <h4 className="font-semibold" style={{color: FRESA_DARK, fontFamily: "'Roboto', sans-serif"}}>Dirección</h4>
+                    <p className="text-gray-600" style={{fontFamily: "'Roboto', sans-serif"}}>C/ Constitución nº20, local izquierda, 03570<br/>La Vila Joiosa, Alicante</p>
                   </div>
                 </div>
                 
@@ -54,8 +46,8 @@ export default function ContactoPage() {
                     <Phone className="w-6 h-6" style={{color: KIWI}} />
                   </div>
                   <div>
-                    <h4 className="font-semibold" style={{color: KIWI}}>Teléfono</h4>
-                    <p className="text-gray-600">(+34) 672 62 12 91</p>
+                    <h4 className="font-semibold" style={{color: KIWI, fontFamily: "'Roboto', sans-serif"}}>Teléfono</h4>
+                    <p className="text-gray-600" style={{fontFamily: "'Roboto', sans-serif"}}>(+34) 672 62 12 91</p>
                   </div>
                 </div>
                 
@@ -64,8 +56,8 @@ export default function ContactoPage() {
                     <Mail className="w-6 h-6" style={{color: FRESA}} />
                   </div>
                   <div>
-                    <h4 className="font-semibold" style={{color: FRESA_DARK}}>Email</h4>
-                    <a href="mailto:info@fresaikiwifotografia.com" className="text-gray-600 hover:underline">
+                    <h4 className="font-semibold" style={{color: FRESA_DARK, fontFamily: "'Roboto', sans-serif"}}>Email</h4>
+                    <a href="mailto:info@fresaikiwifotografia.com" className="text-gray-600 hover:underline" style={{fontFamily: "'Roboto', sans-serif"}}>
                       info@fresaikiwifotografia.com
                     </a>
                   </div>
@@ -73,13 +65,13 @@ export default function ContactoPage() {
                 
                 {/* Social Links */}
                 <div className="pt-4 border-t border-gray-100">
-                  <h4 className="font-semibold mb-4" style={{color: FRESA_DARK}}>Síguenos</h4>
-                  <div className="flex gap-3">
-                    <a href="https://www.instagram.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors hover:scale-110" style={{backgroundColor: FRESA}}>
-                      <Instagram className="w-5 h-5" />
+                  <h4 className="font-semibold mb-4" style={{color: FRESA_DARK, fontFamily: "'Roboto', sans-serif"}}>Síguenos</h4>
+                  <div className="flex gap-4">
+                    <a href="https://www.instagram.com/fresaikiwi_fotografia/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all hover:scale-110 flex items-center justify-center" style={{color: '#E1306C'}}>
+                      <Instagram className="w-6 h-6" />
                     </a>
-                    <a href="https://www.facebook.com/fresaikiwi" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full text-white transition-colors hover:scale-110" style={{backgroundColor: KIWI}}>
-                      <Facebook className="w-5 h-5" />
+                    <a href="https://www.facebook.com/fresaikiwi.fotografia.3" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-all hover:scale-110 flex items-center justify-center" style={{color: '#1877F2'}}>
+                      <Facebook className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
@@ -87,37 +79,38 @@ export default function ContactoPage() {
             </div>
 
             {/* Right: Map */}
-            <div className="rounded-2xl overflow-hidden shadow-lg min-h-[350px] lg:min-h-[400px]">
+            <div className="bg-white p-4 rounded-2xl shadow-lg overflow-hidden h-[400px] lg:h-auto">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d390.26204477840867!2d-0.23027608422429072!3d38.50848851283724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62191ee4c716fd%3A0xc21e2879ce5b91cc!2sFresaikiwi%20Fotografia!5e0!3m2!1ses!2ses!4v1709248393387!5m2!1ses!2ses"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.5!2d-0.2337!3d38.5077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDMwJzI3LjAiTiAwwrAxMycxMi40Ilc!5e0!3m2!1ses!2ses!4v1234567890"
                 width="100%" 
                 height="100%" 
-                style={{border:0, minHeight: '350px'}} 
-                allowFullScreen 
+                style={{border:0}} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación Fresaikiwi Fotografía"
               />
             </div>
           </div>
 
-          {/* Bottom: Contact Form */}
-          <div className="bg-white p-8 rounded-2xl shadow-xl">
-            <h3 className="text-2xl font-bold mb-6" style={{fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D'}}>
-              Envíanos un mensaje
-            </h3>
-            <KleapForm
-              formId="contacto"
-              title="Formulario de Contacto"
-              fields={[
-                { name: "nombre", label: "Nombre completo", type: "text", required: true },
-                { name: "email", label: "Email", type: "email", required: true },
-                { name: "telefono", label: "Teléfono", type: "tel" },
-                { name: "tipo_sesion", label: "Tipo de sesión", type: "select", options: ["Embarazo", "Newborn", "Cumpleaños", "Comunión", "Navidad", "Familia", "Musical", "Moros y Cristianos", "Otro"], required: true },
-                { name: "mensaje", label: "Mensaje", type: "textarea", required: true }
-              ]}
-              submitText="Enviar mensaje"
-              successMessage="¡Gracias por contactarnos! Te responderemos lo antes posible."
-            />
+          {/* Contact Form */}
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <h3 className="text-2xl font-bold text-center mb-6" style={{fontFamily: "'Rouge Script', cursive", color: '#3D3D3D'}}>
+                Envíanos un mensaje
+              </h3>
+              <KleapForm
+                formId="contacto"
+                title="Contacto"
+                fields={[
+                  { name: "nombre", label: "Nombre", type: "text", required: true },
+                  { name: "email", label: "Email", type: "email", required: true },
+                  { name: "telefono", label: "Teléfono", type: "tel" },
+                  { name: "mensaje", label: "Mensaje", type: "textarea", required: true }
+                ]}
+                submitText="Enviar mensaje"
+                successMessage="¡Gracias por contactarnos! Te responderemos pronto."
+              />
+            </div>
           </div>
         </Container>
       </section>
