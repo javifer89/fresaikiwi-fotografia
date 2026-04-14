@@ -34,27 +34,14 @@ export default function AboutPage() {
                 para familias de toda la región. Cada sesión es una oportunidad para capturar el tiempo 
                 y crear arte que durará generaciones.
               </p>
-              <div className="flex items-center gap-4">
-                <div className="p-4 rounded-full" style={{backgroundColor: `${KIWI}33`}}>
-                  <Heart className="w-6 h-6" style={{color: KIWI}} />
-                </div>
-                <div>
-                  <p className="font-semibold" style={{color: FRESA_DARK}}>+500 familias</p>
-                  <p className="text-sm" style={{color: '#9CA3AF'}}>satisfechas</p>
-                </div>
-              </div>
             </div>
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/IMG_9035-copia-bin-800x1024.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvSU1HXzkwMzUtY29waWEtYmluLTgwMHgxMDI0LmpwZyIsImlhdCI6MTc3NjA5ODk5MSwiZXhwIjoxODA3NjM0OTkxfQ.u6XBdTz7AujG0s1Z-z2xAX_BGmGHVuONaSJFHTvsWd4" 
                   alt="Estudio Fresaikiwi"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[700px] object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-6 -left-6 p-6 rounded-xl bg-white shadow-xl">
-                <p className="text-4xl font-bold" style={{color: FRESA}}>+8</p>
-                <p style={{color: '#6B6B6B'}}>años de experiencia</p>
               </div>
             </div>
           </div>

@@ -81,7 +81,7 @@ export default function ContactoPage() {
             {/* Right: Map */}
             <div className="bg-white p-4 rounded-2xl shadow-lg overflow-hidden h-[400px] lg:h-auto">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.5!2d-0.2337!3d38.5077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDMwJzI3LjAiTiAwwrAxMycxMi40Ilc!5e0!3m2!1ses!2ses!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.8734!2d-0.235!3d38.5088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62191ee4c716fd%3A0xc21e2879ce5b91cc!2sFresaikiwi%20Fotografia!5e0!3m2!1ses!2ses!4v1709248393387!5m2!1ses!2ses"
                 width="100%" 
                 height="100%" 
                 style={{border:0}} 

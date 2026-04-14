@@ -13,22 +13,19 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pt-16 pb-8 px-4 md:px-8" style={{ backgroundColor: '#3D3D3D', color: '#F5F5F5' }}>
+    <footer className="py-6 px-4 md:px-8" style={{ backgroundColor: '#3D3D3D', color: '#F5F5F5' }}>
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6 border-b border-white/10">
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
               <img 
                 src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/LOGO_WEB.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvTE9HT19XRUIucG5nIiwiaWF0IjoxNzc2MTAwNTU0LCJleHAiOjE4MDc2MzY1NTR9.ohXez3syn7cmcPraXd6NfzX2-gRdSdfMoqoIBdbUX84" 
                 alt="Fresaikiwi Fotografía"
-                className="h-20 md:h-24 w-auto"
+                className="h-16 md:h-20 w-auto"
               />
             </Link>
-            <p className="text-sm text-gray-400 mb-6 leading-relaxed" style={{fontFamily: "'Roboto', sans-serif", gap: "11px", gap: "0px"}}>
-              Capturando momentos únicos e irrepetibles. Cada sesión es una historia esperando ser contada a través de nuestras imágenes.
-            </p>
             {/* Social Links */}
             <div className="flex gap-4">
               <a
@@ -125,7 +122,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4" style={{ color: FRESA_LIGHT }}>
               Contacto
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: KIWI_LIGHT }} />
                 <span className="text-sm text-gray-400" style={{fontFamily: "'Roboto', sans-serif"}}>
@@ -149,7 +146,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
             © {currentYear} Fresaikiwi Fotografía. Todos los derechos reservados.
           </p>
