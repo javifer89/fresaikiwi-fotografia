@@ -27,9 +27,7 @@ export default function AboutPage() {
                 Fresaikiwi Fotografía
               </h2>
               <p className="text-lg leading-relaxed mb-6" style={{color: '#6B6B6B'}}>
-                Somos un estudio fotográfico ubicado en Elda, especializado en capturar los momentos más 
-                especiales de tu vida. Nuestro nombre, Fresaikiwi, refleja nuestra filosofía: 
-                la combinación perfecta entre dulzura y frescura.
+                Somos un estudio fotográfico ubicado en Villajoyosa, especializado en capturar los momentos más especiales de tu vida. Nuestro nombre, Fresaikiwi, refleja nuestra filosofía: la combinación perfecta entre dulzura y frescura.
               </p>
               <p className="text-lg leading-relaxed mb-6" style={{color: '#6B6B6B'}}>
                 Con años de experiencia, nos hemos dedicado a crear recuerdos únicos y emotivos 

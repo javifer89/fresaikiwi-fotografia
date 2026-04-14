@@ -26,7 +26,7 @@ export function Footer() {
                 className="h-20 md:h-24 w-auto"
               />
             </Link>
-            <p className="text-sm text-gray-400 mb-6 leading-relaxed" style={{fontFamily: "'Roboto', sans-serif"}}>
+            <p className="text-sm text-gray-400 mb-6 leading-relaxed" style={{fontFamily: "'Roboto', sans-serif", gap: "11px", gap: "0px"}}>
               Capturando momentos únicos e irrepetibles. Cada sesión es una historia esperando ser contada a través de nuestras imágenes.
             </p>
             {/* Social Links */}

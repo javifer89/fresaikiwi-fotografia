@@ -120,45 +120,7 @@ export function HeroCarousel() {
 
       {/* Clean display - no overlay */}
 
-      {/* Content */}
-      <div className="relative h-full flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 max-w-3xl z-10 bg-black/0">
-        <div className="animate-fade-in-up">
-          <span 
-            className="inline-block px-4 py-2 mb-6 text-sm font-medium rounded-full bg-white/90 backdrop-blur-sm"
-            style={{ color: FRESA_DARK, fontFamily: "'Roboto', sans-serif" }}
-          >
-            Studio Fresaikiwi
-          </span>
-        </div>
-        <h1 
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up delay-100"
-          style={{ fontFamily: "'Rouge Script', cursive", textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}
-        >
-          {slides[currentSlide].title}
-        </h1>
-        <p 
-          className="text-lg md:text-xl text-white/95 mb-8 animate-fade-in-up delay-200"
-          style={{ fontFamily: "'Roboto', sans-serif", textShadow: '1px 1px 4px rgba(0,0,0,0.4)' }}
-        >
-          {slides[currentSlide].subtitle}
-        </p>
-        <div className="flex gap-4 animate-fade-in-up delay-300">
-          <a
-            href="/sesiones"
-            className="px-8 py-4 rounded-full font-medium transition-all hover:scale-105 hover:shadow-xl"
-            style={{ backgroundColor: FRESA, color: 'white', fontFamily: "'Roboto', sans-serif" }}
-          >
-            Ver Sesiones
-          </a>
-          <a
-            href="/reservas"
-            className="px-8 py-4 rounded-full font-medium border-2 border-white text-white transition-all hover:bg-white hover:text-pink-600"
-            style={{ fontFamily: "'Roboto', sans-serif" }}
-          >
-            Reservar
-          </a>
-        </div>
-      </div>
+      {/* Clean carousel - only images, no text overlays */}
 
       {/* Navigation Arrows */}
       <button
