@@ -8,7 +8,12 @@ export const siteConfig = {
   name: "Fresaikiwi Fotografía",
   tagline: "Capturando momentos irrepetibles",
   description:
-    "Estudio de fotografía especializado en sesiones de embarazo, newborn, comuniones, bodas y sesiones familiares en Valencia. Cada imagen cuenta una historia única.",
+    "Estudio de fotografía especializado en sesiones de embarazo, newborn, comuniones, bodas y sesiones familiares en Villajoyosa. Cada imagen cuenta una historia única.",
+  
+  // Contact Info
+  phone: "633 52 08 62",
+  email: "info@fresaikiwifotografia.com",
+  address: "Villajoyosa, Alicante",
 
   // Site URL (replaced automatically on deploy)
   url: process.env.NEXT_PUBLIC_URL || "https://your-app.kleap.io",

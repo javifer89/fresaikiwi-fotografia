@@ -28,7 +28,7 @@ export function NavBar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-2"
       style={{ backgroundColor: 'rgba(253, 253, 253, 0.95)', backdropFilter: 'blur(10px)' }}
     >
       <div className="max-w-7xl mx-auto">
@@ -38,7 +38,7 @@ export function NavBar() {
             <img 
               src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/LOGO_WEB.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvTE9HT19XRUIucG5nIiwiaWF0IjoxNzc2MTAwNTU0LCJleHAiOjE4MDc2MzY1NTR9.ohXez3syn7cmcPraXd6NfzX2-gRdSdfMoqoIBdbUX84" 
               alt="Fresaikiwi Fotografía"
-              className="h-20 md:h-24 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </Link>
 

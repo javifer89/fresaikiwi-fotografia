@@ -40,7 +40,7 @@ export default function AboutPage() {
                 <img 
                   src="https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/IMG_9035-copia-bin-800x1024.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvSU1HXzkwMzUtY29waWEtYmluLTgwMHgxMDI0LmpwZyIsImlhdCI6MTc3NjA5ODk5MSwiZXhwIjoxODA3NjM0OTkxfQ.u6XBdTz7AujG0s1Z-z2xAX_BGmGHVuONaSJFHTvsWd4" 
                   alt="Estudio Fresaikiwi"
-                  className="w-full h-[700px] object-cover"
+                  className="w-full h-[500px] md:h-[600px] object-cover"
                 />
               </div>
             </div>
