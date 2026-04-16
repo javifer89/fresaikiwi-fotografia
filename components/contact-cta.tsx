@@ -22,11 +22,11 @@ export function ContactCTA() {
           </span>
           <h2 
             className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ fontFamily: "'Cormorant Garamond', serif", color: '#3D3D3D' }}
+            style={{ fontFamily: "'Rouge Script', cursive", color: '#3D3D3D' }}
           >
             Reserve su momento especial
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#6B6B6B' }}>
+          <p className="text-lg max-w-2xl mx-auto" style={{ fontFamily: "'Roboto', sans-serif", color: '#6B6B6B' }}>
             Rellene el formulario y nos pondremos en contacto con usted para planificar su sesión fotográfica perfecta
           </p>
         </div>
@@ -60,8 +60,8 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Ubicación</h3>
-                  <p className="text-gray-600">Villajoyosa, Alicante</p>
-                  <p className="text-sm text-gray-500">C/ Constitución nº20</p>
+                  <p className="text-gray-600" style={{ fontFamily: "'Roboto', sans-serif" }}>Villajoyosa / La Vila Joiosa, Alicante</p>
+                  <p className="text-sm text-gray-500" style={{ fontFamily: "'Roboto', sans-serif" }}>C/ Constitución nº20, local izquierda, 03570</p>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Teléfono</h3>
-                  <p className="text-gray-600">633 52 08 62</p>
+                  <p className="text-gray-600" style={{ fontFamily: "'Roboto', sans-serif" }}>(+34) 633 52 08 62</p>
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Email</h3>
-                  <p className="text-gray-600">info@fresaikiwifotografia.com</p>
+                  <p className="text-gray-600" style={{ fontFamily: "'Roboto', sans-serif" }}>info@fresaikiwifotografia.com</p>
                 </div>
               </div>
             </div>
@@ -97,8 +97,8 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Horario</h3>
-                  <p className="text-gray-600">Lunes - Viernes: 10:00 - 19:00</p>
-                  <p className="text-gray-600">Sábados: 10:00 - 14:00</p>
+                  <p className="text-gray-600" style={{ fontFamily: "'Roboto', sans-serif" }}>Lunes - Viernes: 10:00 - 19:00</p>
+                  <p className="text-gray-600" style={{ fontFamily: "'Roboto', sans-serif" }}>Sábados: 10:00 - 14:00</p>
                 </div>
               </div>
             </div>

@@ -12,7 +12,7 @@ const CREMA = "#FDF8F4";
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen">
       {/* Contact Section */}
       <section className="py-16" style={{backgroundColor: CREMA}}>
         <Container>

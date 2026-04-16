@@ -11,7 +11,7 @@ const CREMA = "#FDF8F4";
 
 export default function ReservasPage() {
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen">
       {/* Booking Section */}
       <section className="py-16" style={{backgroundColor: CREMA}}>
         <Container>
