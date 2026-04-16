@@ -60,8 +60,8 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Ubicación</h3>
-                  <p className="text-gray-600">Valencia, España</p>
-                  <p className="text-sm text-gray-500">Consultar dirección exacta al confirmar</p>
+                  <p className="text-gray-600">Villajoyosa, Alicante</p>
+                  <p className="text-sm text-gray-500">C/ Constitución nº20</p>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Teléfono</h3>
-                  <p className="text-gray-600">[Tu número de teléfono]</p>
+                  <p className="text-gray-600">633 52 08 62</p>
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1" style={{ color: '#3D3D3D' }}>Email</h3>
-                  <p className="text-gray-600">hola@fresaikiwi.es</p>
+                  <p className="text-gray-600">info@fresaikiwifotografia.com</p>
                 </div>
               </div>
             </div>

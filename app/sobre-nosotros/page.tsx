@@ -14,7 +14,7 @@ const GRIS = "#3D3D3D";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen">
       {/* Our Story - sin hero */}
       <section className="py-16 md:py-24" style={{backgroundColor: CREMA}}>
         <Container>

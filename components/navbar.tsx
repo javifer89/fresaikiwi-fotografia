@@ -28,7 +28,7 @@ export function NavBar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-2"
+      className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-1"
       style={{ backgroundColor: 'rgba(253, 253, 253, 0.95)', backdropFilter: 'blur(10px)' }}
     >
       <div className="max-w-7xl mx-auto">

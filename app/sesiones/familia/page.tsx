@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function FamiliaPage() {
   return (
-    <main className="min-h-screen pt-16 pb-16" style={{backgroundColor: '#FDF8F4'}}>
+    <main className="min-h-screen" style={{backgroundColor: '#FDF8F4'}}>
       <Container>
         <Link 
           href="/sesiones" 

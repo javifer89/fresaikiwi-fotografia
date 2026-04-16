@@ -79,7 +79,7 @@ const sessions = [
 
 export default function SesionesPage() {
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen">
       {/* Sessions Section */}
       <section className="py-16" style={{backgroundColor: CREMA}}>
         <Container>
