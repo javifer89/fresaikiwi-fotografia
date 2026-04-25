@@ -1,6 +1,7 @@
+export const dynamic = 'force-dynamic';
 import type { Metadata } from "next";
+import Script from 'next/script';
 import "./globals.css";
-import { GeistSans } from "geist/font/sans";
 import { cn } from "@/lib/utils";
 import { NavBar } from "@/components/navbar";
 import { KleapScripts } from "@/components/kleap-scripts";
@@ -155,11 +156,12 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          GeistSans.className,
+          "font-sans",
           "bg-white antialiased h-full w-full",
         )}
         suppressHydrationWarning // Prevents browser extension conflicts
       >
+        <Script src="/kleap.js" strategy="beforeInteractive" id="kleap-analytics" />
         <TailwindCDNClient />
         <DevToolsGuard />
         <KleapScripts />

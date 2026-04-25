@@ -81,10 +81,10 @@ export default function ContactoPage() {
             {/* Right: Map */}
             <div className="bg-white p-4 rounded-2xl shadow-lg overflow-hidden h-[400px] lg:h-auto">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.8956!2d-0.2338!3d38.5103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62191ee4c716fd%3A0x0!2sC%2F%20Constituci%C3%B3n%20n%C2%BA20%2C%20La%20Vila%20Joiosa!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d390.26204477840867!2d-0.23027608422429072!3d38.50848851283724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62191ee4c716fd%3A0xc21e2879ce5b91cc!2sFresaikiwi%20Fotografia!5e0!3m2!1ses!2ses!4v1709248393387!5m2!1ses!2ses"
                 width="100%" 
                 height="100%" 
-                style={{border:0}} 
+                style={{border:0, display:'block'}}
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Ubicación Fresaikiwi Fotografía"

@@ -1,24 +1,14 @@
-import nextMDX from "@next/mdx";
 import path from "path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Standalone output for optimized Docker builds (~150MB vs 1.7GB)
-  output: "standalone",
 
   // Turbopack configuration
-  turbopack: {
-    root: process.cwd(),
-    // Configure MDX loader for Turbopack
-    rules: {
-      "*.mdx": {
-        loaders: ["@mdx-js/loader"],
-        as: "*.js",
-      },
-    },
-  },
+  turbopack: {},
 
   experimental: {
+    cpus: 2,
     // Enable partial prerendering for faster loads
     // ppr: true, // Only available in canary
     // Optimize bundling
@@ -29,8 +19,7 @@ const nextConfig = {
       "framer-motion",
       "react-hook-form",
       "@radix-ui/react-label",
-      "@radix-ui/react-slot",
-    ],
+      "@radix-ui/react-slot"],
   },
 
   // Suppress hydration warnings globally
@@ -41,6 +30,7 @@ const nextConfig = {
 
   // Image optimization
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -61,8 +51,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "robot-speed.com",
-      },
-    ],
+      }],
     formats: ["image/avif", "image/webp"],
     // Use sharp for better performance
     loader: "default",
@@ -71,8 +60,7 @@ const nextConfig = {
   },
 
   // Page extensions - include .js/.jsx for compatibility
-  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
-
+  
   // Performance optimizations - CodeSandbox optimized
   poweredByHeader: false,
   compress: true,
@@ -106,7 +94,7 @@ const nextConfig = {
   },
 
   // Module transpilation for better performance
-  transpilePackages: ["geist", "cobe"],
+  transpilePackages: ["cobe"],
 
   // Force webpack to resolve @ aliases (in case tsconfig.json is not read)
   webpack: (config, { _isServer, webpack, dev }) => {
@@ -193,8 +181,7 @@ const nextConfig = {
           {
             key: "Expires",
             value: "0",
-          },
-        ],
+          }],
       },
       // Cache headers for static assets (JS, CSS, images)
       // In CodeSandbox dev: NO cache to see AI changes immediately
@@ -207,18 +194,10 @@ const nextConfig = {
             // no-cache = browser must revalidate before using cached version
             // This ensures fresh CSS/JS after AI edits while still allowing conditional caching
             value: "no-cache, no-store, must-revalidate",
-          },
-        ],
-      },
-    ];
+          }],
+      }];
   },
 };
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    providerImportSource: "@mdx-js/react",
-  },
-});
 
-export default withMDX(nextConfig);
+export default nextConfig;

@@ -43,3 +43,5 @@ export const Heading = ({
     </Tag>
   );
 };
+
+export { Subheading } from "@/components/subheading";
