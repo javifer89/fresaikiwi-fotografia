@@ -2,8 +2,8 @@
 
 import { Container } from "@/components/container";
 import Link from "next/link";
-import { ArrowLeft, X } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, X, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const comunionImages = [
   "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/public/assets/txdd0wl8fjegett8criy.avif",
@@ -14,7 +14,20 @@ const comunionImages = [
 
 export default function ComunionPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [allLoaded, setAllLoaded] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadedImages: boolean[] = new Array(comunionImages.length).fill(false);
+    let loadedCount = 0;
+    comunionImages.forEach((src, index) => {
+      const img = new Image();
+      img.onload = () => { loadedImages[index] = true; loadedCount++; if (loadedCount === comunionImages.length) setAllImagesLoaded(true); };
+      img.onerror = () => { loadedImages[index] = true; loadedCount++; if (loadedCount === comunionImages.length) setAllImagesLoaded(true); };
+      img.src = src;
+    });
+  }, []);
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -75,6 +88,21 @@ export default function ComunionPage() {
           
           {/* Galería de fotos */}
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px'}}>
+            {!allImagesLoaded && (
+              <div 
+                className="col-span-2 row-span-2 flex items-center justify-center"
+                style={{
+                  aspectRatio: '1/1',
+                  backgroundColor: '#f5f0eb',
+                  borderRadius: '12px',
+                  gridColumn: '1 / -1',
+                  gridRow: '1 / -1',
+                  zIndex: 1
+                }}
+              >
+                <Loader2 className="w-8 h-8 animate-spin" style={{color: '#D48888'}} />
+              </div>
+            )}
             {comunionImages.map((src, index) => (
               <div 
                 key={index}
@@ -93,7 +121,9 @@ export default function ComunionPage() {
                   overflow: 'hidden',
                   cursor: 'pointer',
                   aspectRatio: '1/1',
-                  backgroundColor: '#f0f0f0'
+                  backgroundColor: '#f0f0f0',
+                  opacity: allImagesLoaded ? 1 : 0,
+                  transition: 'opacity 0.5s ease'
                 }}
               >
                 <img 

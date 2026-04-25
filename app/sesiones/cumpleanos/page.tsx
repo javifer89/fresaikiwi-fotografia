@@ -2,24 +2,39 @@
 
 import { Container } from "@/components/container";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, X, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const galleryImages = [
-  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/ALEJANDRO_SMASH-240.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvQUxFSkFORFJPX1NNQVNILTI0MC5qcGciLCJpYXQiOjE3NzcxMjk5NTYsImV4cCI6MTgwODY2NTk1Nn0.UgDYIgrMuQD9sDM-beh2YTND7PFwLaifSoFtzuANV-4",
-  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/EMMA_2-82.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvRU1NQV8yLTgyLmpwZyIsImlhdCI6MTc3NzEyOTk2NiwiZXhwIjoxODA4NjY1OTY2fQ.T9-w01WMFiY5O6celk6xlhX232gRsURh3ZEWIxm-a94",
-  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/TRISTAN-209.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvVFJJU1RBTi0yMDkuanBnIiwiaWF0IjoxNzc3MTI5OTc1LCJleHAiOjE4MDg2NjU5NzV9.vRJZamEX3Q78qNhMmpbWkCLSlBWElc_ClJo_1lYjwZs",
-  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/sign/assets/EMMA%201%20copia.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ODI1NjIyOS0wNDlhLTRkMTgtYTIxNi0wNmIwOTkwODZiMjgiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhc3NldHMvRU1NQSAxIGNvcGlhLmpwZyIsImlhdCI6MTc3NzEyOTk4NiwiZXhwIjoxODA4NjY1OTg2fQ.VTPEf2xJ2Sd85CM7_DjflSB3JXX9xsrJLtYCebmKbWs",
+  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/public/assets/ALEJANDRO_SMASH-240.jpg",
+  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/public/assets/EMMA_2-82.jpg",
+  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/public/assets/TRISTAN-209.jpg",
+  "https://rxdpvfeqdbenrlupzewy.supabase.co/storage/v1/object/public/assets/EMMA 1 copia.jpg",
 ];
 
 export default function CumpleanosPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [allLoaded, setAllLoaded] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
   const openLightbox = (index: number) => {
     setCurrentImage(index);
     setLightboxOpen(true);
   };
+
+  useEffect(() => {
+    let loadedCount = 0;
+    galleryImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === galleryImages.length) {
+          setAllLoaded(true);
+        }
+      };
+    });
+  }, []);
 
   return (
     <main className="min-h-screen" style={{ backgroundColor: '#FDF8F4' }}>
@@ -133,6 +148,20 @@ export default function CumpleanosPage() {
             gridTemplateColumns: 'repeat(2, 1fr)',
             gap: '12px',
           }}>
+            {!allLoaded && (
+              <div style={{
+                gridColumn: '1 / -1',
+                gridRow: '1 / -1',
+                aspectRatio: '1/1',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#f5f0eb',
+                borderRadius: '12px',
+              }}>
+                <Loader2 className="w-8 h-8 animate-spin" style={{color: '#D48888'}} />
+              </div>
+            )}
             {galleryImages.map((src, index) => (
               <div
                 key={index}
