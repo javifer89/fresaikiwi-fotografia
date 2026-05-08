@@ -4,38 +4,33 @@ import { useEffect } from "react";
 
 /**
  * Kleap Badge Component
- * Displays "Made with Kleap" badge on ALL sites created with Kleap
- * Shows everywhere: CodeSandbox, Vercel, iframe, direct URLs
- * This is the Kleap signature - always visible unless explicitly hidden
  *
- * 🎯 TRACKING: Badge clicks are tracked with UTM params + beacon API
+ * Renders "Made with Kleap" badge unless the app owner is on a paid plan
+ * with hide_kleap_badge=true. Source of truth is the DB, queried via the
+ * public config endpoint — so toggling the setting takes effect on next page
+ * load (preview AND production), with no redeploy required for preview.
  */
 export function KleapBadge() {
   useEffect(() => {
-    // Show badge unless hidden via dashboard settings
-    if (typeof window !== "undefined") {
-      // Check if badge is hidden by parent frame config
-      if ((window as any).__kleapBadgeHidden) {
-        return;
-      }
-      // Check if badge already exists
-      if (document.querySelector("[data-kleap-badge]")) {
-        return;
-      }
+    if (typeof window === "undefined") return;
+    if ((window as any).__kleapBadgeHidden) return;
+    if (document.querySelector("[data-kleap-badge]")) return;
 
-      // Get app ID from config or URL
-      const appId = (window as any)._kleap?.id || "preview";
+    const appId = (window as any)._kleap?.id;
+    let cleanup: (() => void) | undefined;
 
-      // Create badge container
+    const renderBadge = () => {
+      if ((window as any).__kleapBadgeHidden) return;
+      if (document.querySelector("[data-kleap-badge]")) return;
+
       const badge = document.createElement("div");
       badge.setAttribute("data-kleap-badge", "true");
       badge.style.cssText =
         "position:fixed;bottom:20px;right:20px;z-index:999999;font-family:-apple-system,system-ui,sans-serif;";
 
-      // 🎯 UTM TRACKING: Better attribution for badge clicks
-      const badgeUrl = `https://kleap.co/from-badge?utm_source=badge&utm_medium=built-with&utm_campaign=app-${appId}&ref=${appId}`;
+      const refId = appId || "preview";
+      const badgeUrl = `https://kleap.co/from-badge?utm_source=badge&utm_medium=built-with&utm_campaign=app-${refId}&ref=${refId}`;
 
-      // Create link
       const link = document.createElement("a");
       link.href = badgeUrl;
       link.target = "_blank";
@@ -45,18 +40,15 @@ export function KleapBadge() {
       link.innerHTML =
         'Made with <strong style="color:#ff0055;">Kleap</strong>';
 
-      // 📊 CLICK TRACKING: Track badge clicks for analytics
       link.onclick = () => {
-        // Track via Umami if available
         if ((window as any).umami?.track) {
-          (window as any).umami.track("badge_click", { app_id: appId });
+          (window as any).umami.track("badge_click", { app_id: refId });
         }
-        // Also track via Kleap API for backend analytics
         try {
           navigator.sendBeacon(
             "https://kleap.co/api/track-badge-click",
             JSON.stringify({
-              appId: appId,
+              appId: refId,
               timestamp: Date.now(),
               referrer: window.location.href,
             }),
@@ -65,8 +57,6 @@ export function KleapBadge() {
           /* sendBeacon may fail silently */
         }
       };
-
-      // Add hover effects
       link.onmouseenter = () => {
         link.style.transform = "translateY(-2px)";
         link.style.boxShadow =
@@ -80,12 +70,31 @@ export function KleapBadge() {
 
       badge.appendChild(link);
       document.body.appendChild(badge);
+      cleanup = () => badge.remove();
+    };
 
-      // Cleanup on unmount
-      return () => {
-        badge.remove();
-      };
+    if (!appId) {
+      renderBadge();
+      return () => cleanup?.();
     }
+
+    fetch(`https://kleap.co/api/public/apps/${appId}/config`, {
+      mode: "cors",
+      cache: "default",
+    })
+      .then((r) => r.json())
+      .then((cfg) => {
+        if (cfg?.badge === false) {
+          (window as any).__kleapBadgeHidden = true;
+          return;
+        }
+        renderBadge();
+      })
+      .catch(() => {
+        renderBadge();
+      });
+
+    return () => cleanup?.();
   }, []);
 
   return null;

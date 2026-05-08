@@ -63,7 +63,7 @@ export default function NewbornPage() {
           <span style={{fontFamily: "'Roboto', sans-serif"}}>Volver a Sesiones</span>
         </Link>
         
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:items-start mb-16">
           <div>
             <span className="inline-block px-4 py-1 rounded-full text-sm mb-4" style={{backgroundColor: 'rgba(232,164,164,0.2)', color: '#D48888'}}>
               Primeros Días
@@ -100,55 +100,58 @@ export default function NewbornPage() {
           </div>
           
           {/* Galería de fotos en la columna derecha */}
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px'}}>
-            {!allImagesLoaded && (
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', alignItems: 'start'}}>
+            {!allImagesLoaded ? (
               <div 
-                className="col-span-2 row-span-2 flex items-center justify-center"
                 style={{
                   aspectRatio: '1/1',
                   backgroundColor: '#f5f0eb',
-                  borderRadius: '12px'
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gridColumn: '1 / -1'
                 }}
               >
                 <Loader2 className="w-8 h-8 animate-spin" style={{color: '#D48888'}} />
               </div>
-            )}
-            {newbornImages.map((src, index) => (
-              <div 
-                key={index}
-                onClick={() => openLightbox(index)}
-                onMouseEnter={(e) => {
-                  const img = e.currentTarget.querySelector('img') as HTMLImageElement;
-                  if (img) img.style.transform = 'scale(1.1)';
-                }}
-                onMouseLeave={(e) => {
-                  const img = e.currentTarget.querySelector('img') as HTMLImageElement;
-                  if (img) img.style.transform = 'scale(1)';
-                }}
-                style={{
-                  position: 'relative',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  aspectRatio: '1/1',
-                  backgroundColor: '#f0f0f0',
-                  opacity: allImagesLoaded ? 1 : 0
-                }}
-              >
-                <img 
-                  src={src} 
-                  alt={`Newborn ${index + 1}`}
-                  loading="lazy"
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.3s ease, opacity 0.5s ease'
+            ) : (
+              newbornImages.map((src, index) => (
+                <div 
+                  key={index}
+                  onClick={() => openLightbox(index)}
+                  onMouseEnter={(e) => {
+                    const img = e.currentTarget.querySelector('img') as HTMLImageElement;
+                    if (img) img.style.transform = 'scale(1.1)';
                   }}
-                />
-              </div>
-            ))}
+                  onMouseLeave={(e) => {
+                    const img = e.currentTarget.querySelector('img') as HTMLImageElement;
+                    if (img) img.style.transform = 'scale(1)';
+                  }}
+                  style={{
+                    position: 'relative',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    aspectRatio: '1/1',
+                    backgroundColor: '#f0f0f0'
+                  }}
+                >
+                  <img 
+                    src={src} 
+                    alt={`Newborn ${index + 1}`}
+                    loading="lazy"
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.3s ease'
+                    }}
+                  />
+                </div>
+              ))
+            )}
           </div>
         </div>
       </Container>
